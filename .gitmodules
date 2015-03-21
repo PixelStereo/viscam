@@ -1,0 +1,3 @@
+[submodule "pyvisca"]
+	path = pyvisca
+	url = https://github.com/PixelStereo/pyvisca.git
