@@ -11,15 +11,14 @@ from PyQt5.QtCore import QStringListModel
 from PyQt5.QtGui import  QStandardItemModel , QStandardItem
 
 # for development of pyCamera, use git version
-pyvisca_path = os.path.abspath('./PyVisca')
-sys.path.append(pyvisca_path)
+libs_path = os.path.abspath('./../libs')
+sys.path.append(libs_path)
 
-from PyVisca.PyVisca import Visca
+from pyvisca.PyVisca import Visca
 
+# a camera is created in visca_app
 import visca_app
-
 v = visca_app.v
-
 
 debug = True
 update_run=False

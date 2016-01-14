@@ -8,13 +8,10 @@ import os, sys
 # for development of pyCamera, use git version
 _path = os.path.abspath('./../libs')
 sys.path.append(_path)
-print _path
 
-from pydevicemanager import devicemanager
-import Pyvisca
+from pydevicemanager.devicemanager import OSCServer
+from pyvisca.PyVisca import Visca, _cmd_adress_set, _if_clear,Serial
 
-quit()
-from Pyvisca.Pyvisca import Visca, _cmd_adress_set, _if_clear,Serial
 
 debug = True
 
@@ -34,7 +31,7 @@ if debug : print 'trig from APP :','datascreen off'
 if debug : print v.noOSD().encode('hex')
 
 # create OSC server
-osc = devicemanager.OSC(22222,'span')
+osc = OSCServer(22222,name='span')
 osc = osc.serverThread.oscServer
 # it will be nice to do next lines in devicemanager
 # create multi-thread server
