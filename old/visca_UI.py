@@ -39,51 +39,44 @@ class ViscaUI(QMainWindow, form_class):
         self.power.setChecked(power)
         power = v._query('power')
         self.power.setChecked(power)
-        sleep(0.2)
         zoom = v._query('zoom')
         print 'zoom' , zoom
-        """if zoom:
+        if zoom:
             self.zoom_direct_value.setValue(zoom)
             self.zoom_tele_speed_label.setText(str(0))
             self.zoom_wide_speed_label.setText(str(0))
         else:
             self.zoom_direct_value.isVisible(False)
             self.zoom_tele_speed_label.isVisible(False)
-            self.zoom_wide_speed_label.isVisible(False)"""
-        sleep(1)
+            self.zoom_wide_speed_label.isVisible(False)
         focus = v._query('focus')
         print 'focus' , focus
         self.focus_direct_value.setValue(focus)
         nearlimit = v._query('nearlimit')
         self.focus_nearlimit_value.setValue(nearlimit)
-        sleep(1)
         pan,tilt = v._query('pan_tilt')
         self.tilt.setValue(tilt)
         self.pan.setValue(pan)
-        sleep(1)
         # exposition parameters
+        IR = v._query('IR')
+        self.IR.setChecked(IR)
         AE = v._query('AE')
         print AE
         self.AE.setCurrentText(AE)
-        sleep(1)
         if debug : print('from UI :','AE',AE)
         if AE != 'auto':
             aperture = v._query('aperture')
             if aperture:
                 self.aperture.setCurrentIndex(aperture)
-                sleep(0.1)
             iris = v._query('iris')
             if iris:
                 self.iris.setCurrentIndex(iris)
-                sleep(0.1)
             shutter = v._query('shutter')
             if shutter:
                 self.shutter.setCurrentIndex(shutter)
-                sleep(0.1)
             gain = v._query('gain')
             if gain:
                 self.gain.setCurrentIndex(gain)
-                sleep(0.1)
         if self.AE.currentText() == 'auto':
             self.AE_manual.setVisible(False)
     
