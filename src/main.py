@@ -10,14 +10,13 @@ from PyQt5.QtCore import QModelIndex,Qt,QSignalMapper,QSettings,QPoint,QSize,QSe
 from PyQt5.QtWidgets import QMainWindow,QGroupBox,QApplication,QMdiArea,QWidget,QAction,QListWidget,QPushButton,QMessageBox,QFileDialog,QDialog,QMenu,QToolBar
 from PyQt5.QtWidgets import QVBoxLayout,QLabel,QLineEdit,QGridLayout,QHBoxLayout,QSpinBox,QStyleFactory,QListWidgetItem,QAbstractItemView,QComboBox,QTableWidget
 
-# for development of pyprojekt, use git version
+# for development of pyCamera, use git version
 pyvisca_path = os.path.abspath('./../pyvisca')
 sys.path.append(pyvisca_path)
 
-from child import Projekt
-
+from child import Camera
 import PyVisca
-from PyVisca.PyVisca import _cmd_adress_set , Visca , _if_clear
+from PyVisca.PyVisca import _cmd_adress_set , _if_clear
 from PyVisca.PyVisca import Serial as serial
 
 
@@ -29,6 +28,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()    
 
         self.ports = serial.listports()
+        self.port = None
 
         # remove close & maximize window buttons
         #self.setWindowFlags(Qt.CustomizeWindowHint|Qt.WindowMinimizeButtonHint)
@@ -44,6 +44,7 @@ class MainWindow(QMainWindow):
 
         self.windowMapper = QSignalMapper(self)
         self.windowMapper.mapped[QWidget].connect(self.setActiveSubWindow)
+
         
         self.child = None
 
@@ -55,11 +56,18 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("VISCAM")
 
         mytoolbar = QToolBar() 
-        #self.toolbar = self.addToolBar()
+        ports_menu = QComboBox()
+        ports_menu.addItem('Output Port')
+        ports_menu.insertSeparator(1)
+        for port in self.ports:
+            ports_menu.addItem(port)
+        self.ports_menu = ports_menu
+        ports_menu.currentTextChanged.connect(self.setActivePort)
+        mytoolbar.addWidget(ports_menu)
         mytoolbar.addSeparator()
         mytoolbar.setMovable(False)
-        mytoolbar.setFixedWidth(60)
-        self.addToolBar( Qt.LeftToolBarArea , mytoolbar )
+        mytoolbar.setFixedHeight(60)
+        self.addToolBar( Qt.TopToolBarArea , mytoolbar )
 
     def closeEvent(self, scenario):
         self.mdiArea.closeAllSubWindows()
@@ -75,10 +83,10 @@ class MainWindow(QMainWindow):
                 "This release is an alpha version. Don't use it in production !!")
 
     def updateMenus(self):
-        hasProjekt = (self.activeProjekt() is not None)
-        self.nextAct.setEnabled(hasProjekt)
-        self.previousAct.setEnabled(hasProjekt)
-        self.separatorAct.setVisible(hasProjekt)
+        hasCamera = (self.activeCamera() is not None)
+        self.nextAct.setEnabled(hasCamera)
+        self.previousAct.setEnabled(hasCamera)
+        self.separatorAct.setVisible(hasCamera)
 
     def updatePortMenu(self):
         self.PortMenu.clear()
@@ -90,12 +98,9 @@ class MainWindow(QMainWindow):
 
             action = self.PortMenu.addAction(text)
             action.setCheckable(True)
-            action.setChecked(port is self.activePort())
-            #action.triggered.connect(self.windowMapper.map)
-            #self.windowMapper.setMapping(action, window)
-
-    def activePort(self):
-        pass
+            if port == self.port:
+                action.setChecked(True)
+            action.triggered.connect(self.setActivePort)
 
     def updateWindowMenu(self):
         self.windowMenu.clear()
@@ -115,20 +120,18 @@ class MainWindow(QMainWindow):
 
             action = self.windowMenu.addAction(text)
             action.setCheckable(True)
-            action.setChecked(child is self.activeProjekt())
+            action.setChecked(child is self.activeCamera())
             action.triggered.connect(self.windowMapper.map)
             self.windowMapper.setMapping(action, window)
 
-    def createProjekt(self):
-        child = Projekt()
+    def createCamera(self):
+        child = Camera(serial)
         self.mdiArea.addSubWindow(child)
+        child.newFile()
         self.child = child
         return child
 
     def createActions(self):
-        self.out_port_Act = QAction("Choose Output Port" ,self,
-                statusTip="Choose output port",triggered=self.out_port)
-
         self.exitAct = QAction("E&xit", self, shortcut=QKeySequence.Quit,
                 statusTip="Exit the application",
                 triggered=QApplication.instance().closeAllWindows)
@@ -157,16 +160,11 @@ class MainWindow(QMainWindow):
                 statusTip="Show the application's About box",
                 triggered=self.about)
 
-    def out_port(self):
-        #print serial.listports()
-        pass
-
     def createMenus(self):
         self.fileMenu = self.menuBar().addMenu("&File")
         self.fileMenu.addAction(self.exitAct)
 
         self.PortMenu = self.menuBar().addMenu("&Ports")
-        self.updatePortMenu()
         self.updatePortMenu()
         self.PortMenu.aboutToShow.connect(self.updatePortMenu)
 
@@ -184,6 +182,7 @@ class MainWindow(QMainWindow):
 
     def readSettings(self):
         settings = QSettings('Pixel Stereo', 'viscam')
+        port = settings.value('port')
         pos = settings.value('pos', QPoint(200, 200))
         size = settings.value('size', QSize(1000, 650))
         self.move(pos)
@@ -191,17 +190,18 @@ class MainWindow(QMainWindow):
 
     def writeSettings(self):
         settings = QSettings('Pixel Stereo', 'viscam')
+        settings.setValue('port', self.port)
         settings.setValue('pos', self.pos())
         settings.setValue('size', self.size())
 
-    def activeProjekt(self):
+    def activeCamera(self):
         activeSubWindow = self.mdiArea.activeSubWindow()
         if activeSubWindow:
             return activeSubWindow.widget()
         else:
             return None
 
-    def findProjekt(self, fileName):
+    def findCamera(self, fileName):
         canonicalFilePath = QFileInfo(fileName).canonicalFilePath()
 
         for window in self.mdiArea.subWindowList():
@@ -212,6 +212,16 @@ class MainWindow(QMainWindow):
     def setActiveSubWindow(self, window):
         if window:
             self.mdiArea.setActiveSubWindow(window)
+
+    def setActivePort(self):
+        self.port = self.ports_menu.currentText().encode('utf-8')
+        self.updatePortMenu()
+        serial.open(portname=self.port)
+        viscams = _cmd_adress_set(serial)
+        _if_clear(serial)
+        for v in viscams:
+            v = self.createCamera()
+
 
 
 

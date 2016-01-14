@@ -6,6 +6,11 @@ from PyQt5.QtCore import Qt,QModelIndex,QFileInfo,QFile
 from PyQt5.QtWidgets import QFileDialog,QListWidgetItem,QApplication,QMessageBox,QTableWidgetItem,QSpinBox,QComboBox
 from PyQt5.QtWidgets import QGroupBox,QHBoxLayout,QLabel,QLineEdit,QListWidget,QAbstractItemView,QPushButton,QGridLayout
 
+# for development of pyCamera, use git version
+pyvisca_path = os.path.abspath('./../pyvisca')
+sys.path.append(pyvisca_path)
+
+from PyVisca.PyVisca import _cmd_adress_set , Visca , _if_clear
 
 class Document(object):
     """docstring for Document"""
@@ -24,19 +29,30 @@ class Document(object):
         pass
 
 
-class Projekt(QGroupBox,QModelIndex):
-    """This is the projekt class"""
+class Camera(QGroupBox,QModelIndex):
+    """This is the Camera class"""
     sequenceNumber = 1
 
-    def __init__(self):
-        super(Projekt, self).__init__()
+    def __init__(self,serial):
+        super(Camera, self).__init__()
 
+        self.serial = serial
+        
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.isUntitled = True
-        # I must change all 'document' class reference to 'project' class… so I need to enhance project with modify flags and signals
+        # I must change all 'document' class reference to 'camera' class… so I need to enhance camera with modify flags and signals
         self.document = Document('unknown')
         # Create a camera
+        self.camera = Visca(serial)
 
+    def newFile(self):
+        """create a new camera"""
+        self.isUntitled = True
+        self.curFile = "camera %d" % Camera.sequenceNumber
+        Camera.sequenceNumber += 1
+        self.setWindowTitle(self.curFile + '[*]')
+
+        self.camera.name = self.curFile
 
     def userFriendlyCurrentFile(self):
         return self.strippedName(self.curFile)
