@@ -11,13 +11,13 @@ from PyQt5.QtWidgets import QMainWindow,QGroupBox,QApplication,QMdiArea,QWidget,
 from PyQt5.QtWidgets import QVBoxLayout,QLabel,QLineEdit,QGridLayout,QHBoxLayout,QSpinBox,QStyleFactory,QListWidgetItem,QAbstractItemView,QComboBox,QTableWidget
 
 # for development of pyCamera, use git version
-pyvisca_path = os.path.abspath('./../pyvisca')
+pyvisca_path = os.path.abspath('./../libs')
 sys.path.append(pyvisca_path)
 
 from child import Camera
-import PyVisca
-from PyVisca.PyVisca import _cmd_adress_set , _if_clear
-from PyVisca.PyVisca import Serial as serial
+
+from pyvisca.PyVisca import _cmd_adress_set , _if_clear
+from pyvisca.PyVisca import Serial as serial
 
 
 serial = serial()
