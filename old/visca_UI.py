@@ -61,8 +61,11 @@ class ViscaUI(QMainWindow, form_class):
         IR = v._query('IR')
         self.IR.setChecked(IR)
         AE = v._query('AE')
-        print AE
+        print 'AE', AE
         self.AE.setCurrentText(AE)
+        v.video(720, 50)
+        VIDEO = v._query('video')
+        print 'VIDEO', VIDEO
         if debug : print('from UI :','AE',AE)
         if AE != 'auto':
             aperture = v._query('aperture')

@@ -42,21 +42,23 @@ class Camera(QGroupBox,QModelIndex):
         self.isUntitled = True
         # I must change all 'document' class reference to 'camera' class… so I need to enhance camera with modify flags and signals
         self.document = Document('unknown')
+        
         # Create a camera
         self.camera = Visca(serial)
-
-        self.createPowerPanel()
-
+        # create power panel first
+        power_Groupbox = self.createPowerPanel()
         # Create the main layout
         mainLayout = QGridLayout()
         # Integrate the layout previously created
-        mainLayout.addWidget(self.power_Groupbox)
-        self.mainLayout = mainLayout
+        mainLayout.addWidget(power_Groupbox, 0, 0)
+        print 'H', power_Groupbox.height()
+        print 'W', power_Groupbox.width()
         # Integrate main layout to the main window
         self.setLayout(mainLayout)
+        self.mainLayout = mainLayout
 
     def power_pow_func(self):
-        pass
+        return True
 
     def createPowerPanel(self):
         power_pow_label = QLabel('power')
@@ -68,10 +70,13 @@ class Camera(QGroupBox,QModelIndex):
         power_layout = QHBoxLayout()
         power_layout.addWidget(power_pow_label)
         power_layout.addWidget(power_pow)
-        power_layout.addStretch(1)
+        #power_layout.addStretch(1)
 
-        self.power_Groupbox = QGroupBox()
-        self.power_Groupbox.setLayout(power_layout)   
+        power_Groupbox = QGroupBox()
+        #power_Groupbox.setMinimumHeight(400)
+        #power_Groupbox.setMinimumWidth(400)
+        power_Groupbox.setLayout(power_layout)   
+        return power_Groupbox
 
     def newFile(self):
         """create a new camera"""

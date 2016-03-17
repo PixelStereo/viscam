@@ -223,8 +223,6 @@ class MainWindow(QMainWindow):
             v = self.createCamera()
 
 
-
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     mainWin = MainWindow()
