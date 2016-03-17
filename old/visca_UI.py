@@ -35,22 +35,12 @@ class ViscaUI(QMainWindow, form_class):
         self.pan_value = 0
         self.tilt_value = 0
         power = v._query('power') 
-        print power
-        self.power.setChecked(power)
-        power = v._query('power')
         self.power.setChecked(power)
         zoom = v._query('zoom')
-        print 'zoom' , zoom
-        if zoom:
-            self.zoom_direct_value.setValue(zoom)
-            self.zoom_tele_speed_label.setText(str(0))
-            self.zoom_wide_speed_label.setText(str(0))
-        else:
-            self.zoom_direct_value.isVisible(False)
-            self.zoom_tele_speed_label.isVisible(False)
-            self.zoom_wide_speed_label.isVisible(False)
+        self.zoom_direct_value.setValue(zoom)
+        self.zoom_tele_speed_label.setText(str(0))
+        self.zoom_wide_speed_label.setText(str(0))
         focus = v._query('focus')
-        print 'focus' , focus
         self.focus_direct_value.setValue(focus)
         nearlimit = v._query('nearlimit')
         self.focus_nearlimit_value.setValue(nearlimit)
@@ -61,12 +51,11 @@ class ViscaUI(QMainWindow, form_class):
         IR = v._query('IR')
         self.IR.setChecked(IR)
         AE = v._query('AE')
-        print 'AE', AE
         self.AE.setCurrentText(AE)
         v.video(720, 50)
         VIDEO = v._query('video')
-        print 'VIDEO', VIDEO
-        if debug : print('from UI :','AE',AE)
+        if debug:
+            print('from UI :','AE',AE)
         if AE != 'auto':
             aperture = v._query('aperture')
             if aperture:

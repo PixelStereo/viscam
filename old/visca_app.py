@@ -12,7 +12,6 @@ sys.path.append(_path)
 from pydevicemanager.devicemanager import OSCServer
 from pyvisca.PyVisca import Visca, _cmd_adress_set, _if_clear,Serial
 
-
 debug = True
 
 # create a serial object
@@ -31,7 +30,7 @@ if debug : print 'trig from APP :','datascreen off'
 if debug : print v.noOSD().encode('hex')
 
 # create OSC server
-osc = OSCServer(22222,name='span')
+osc = OSCServer(v, 22222, name='span')
 osc = osc.serverThread.oscServer
 # it will be nice to do next lines in devicemanager
 # create multi-thread server
@@ -42,19 +41,22 @@ osc = osc.serverThread.oscServer
 if debug :print  '----------- VISCA APP LOADED AND RUNNING----------------'
 
 print '---------registering osc callback-----------------'
-parameters =  dir(Visca)
+# get properties of VISCA
+parameters = [p for p in dir(Visca) if isinstance(getattr(Visca, p),property)]
+# format to OSC (replace each underscore with a slash and add a slash as first character)
 for parameter in parameters:
-	if not parameter.startswith('_'):
-		old = parameter.split('_')
-		new = ''
-		for item in old:
-			new = new+'/'+item
-			handler = parameter+'_handler'
-		# some commands doesn't need arguments, but it's more simple to send all and ignore these after
-		function = 'def '+handler+'(addr, tags, args, source):v.'+parameter+'(args)'
-		exec(function)
-		osc.addMsgHandler(parameter,eval(handler))
-		print new , '->' , parameter
+	old = parameter.split('_')
+	new = ''
+	for item in old:
+		new = new + '/' + item
+		handler = parameter + '_handler'
+	# some commands doesn't need arguments, but it's more simple to send all and ignore these after
+	function = 'def ' + handler + '(addr, tags, args, source):v.' + parameter + '(args)'
+	exec(function)
+	osc.addMsgHandler(parameter,eval(handler))
+	if debug:
+		dbg = 'register {parameter} -> {new}'
+		print(dbg.format(new=new, parameter=parameter))
 print '---------end of registering osc callback----------'
 
 #sleep(30)
