@@ -1,6 +1,12 @@
 [submodule "libs/pydevicemanager"]
 	path = libs/pydevicemanager
-	url = https://reno-@github.com/PixelStereo/pydevicemanager.git
+	url = https://github.com/PixelStereo/pydevicemanager.git
 [submodule "libs/pyvisca"]
 	path = libs/pyvisca
-	url = https://reno-@github.com/PixelStereo/PyVisca.git
+	url = https://github.com/PixelStereo/PyVisca.git
+[submodule "3rdparty/pyvisca"]
+	path = 3rdparty/pyvisca
+	url = https://github.com/PixelStereo/PyVisca.git
+[submodule "3rdparty/pydevicemanager"]
+	path = 3rdparty/pydevicemanager
+	url = https://github.com/PixelStereo/pydevicemanager.git
