@@ -11,14 +11,29 @@ from PyQt5.QtCore import QStringListModel
 from PyQt5.QtGui import  QStandardItemModel , QStandardItem
 
 # for development of pyCamera, use git version
-libs_path = os.path.abspath('./../libs')
+libs_path = os.path.abspath('./../3rdparty/pyvisca')
+print libs_path
 sys.path.append(libs_path)
 
-from pyvisca.PyVisca import Visca
+from pyvisca.PyVisca import Viscam
 
 # a camera is created in visca_app
-import visca_app
-v = visca_app.v
+# create a visca bus object
+cams = Viscam()
+# get a list of serial ports available and select the last one
+ports = cams.serial.listports()
+port = None
+for item in ports:
+    if 'usbserial' in item:
+        port = item
+if not port:
+    port = ports[0]
+print('serial port opening : ' + port)
+# open a connection on the serial object
+cams.reset(port)
+
+cams = cams.get_instances()
+v = cams[0]
 
 debug = True
 update_run=False
@@ -52,10 +67,8 @@ class ViscaUI(QMainWindow, form_class):
         self.IR.setChecked(IR)
         AE = v._query('AE')
         self.AE.setCurrentText(AE)
-        v.video(720, 50)
+        v.video = (720, 50)
         VIDEO = v._query('video')
-        if debug:
-            print('from UI :','AE',AE)
         if AE != 'auto':
             aperture = v._query('aperture')
             if aperture:
@@ -75,7 +88,7 @@ class ViscaUI(QMainWindow, form_class):
     def on_AE_currentIndexChanged(self,mode):
         if type(mode) == unicode:
             mode = mode.encode('utf-8')
-            v.AE(mode)
+            v.AE = mode
             if mode == 'auto':
                 self.AE_manual.setVisible(False)
             if mode == 'manual':
@@ -108,42 +121,42 @@ class ViscaUI(QMainWindow, form_class):
         if type(index) == unicode:
             print 'index is F…'
         else:
-            v.shutter(index)
+            v.shutter = index
 
     def on_iris_currentIndexChanged(self,index):
         if debug : print'from UI :','IRIS',index
         if type(index) == unicode:
             print 'index is F…'
         else:
-            v.iris(index)
+            v.iris = index
 
     def on_gain_currentIndexChanged(self,index):
         if debug : print'from UI :','gain',index
         if type(index) == unicode:
-            print 'index is F…'
+            print 'gain is ', index, 'dB'
         else:
-            v.gain(index)
+            v.gain = index
 
     def on_aperture_currentIndexChanged(self,index):
         if debug : print'from UI :','aperture',index
         if type(index) == unicode:
             print 'index is F…'
         else:
-            v.aperture(index)
+            v.aperture = index
 
     def on_slowshutter_currentIndexChanged(self,state):
         if type(state) == unicode:
             state = state.encode('utf-8')
         if state:
             if debug : print'from UI :','slowshutter',state
-            v.slowshutter('auto')
+            v.slowshutter = 'auto'
         else:
             print 'SLOWSHUTTER MANUAL'
-            v.slowshutter('manual')
+            v.slowshutter = 'manual'
     
     def on_IR_toggled(self,state):
         if debug : print'from UI :','IR',state
-        v.IR(state)
+        v.IR = state
 
     def on_mem_recall_1_toggled(self,state):
         if debug : print'from UI :','memory_recall',0
@@ -190,7 +203,7 @@ class ViscaUI(QMainWindow, form_class):
     def on_power_toggled(self,state):
         if debug : print'from UI :','power' , state
         #visca_app.h_bool(state)
-        v.power(state)
+        v.power = state
     
     def on_zoom_tele_pressed(self):
         if debug : print'from UI :','zoom_tele'
@@ -215,8 +228,8 @@ class ViscaUI(QMainWindow, form_class):
         v.zoom_wide_speed(speed)
     
     def on_zoom_direct_valueChanged(self,zoom):
-        if debug : print'from UI :','zoom_direct',zoom
-        v.zoom_direct(zoom)
+        if debug : print'from UI :','zoom',zoom
+        v.zoom = zoom
 
     def on_focus_mode_currentIndexChanged(self,mode):
         if type(mode) == unicode:
@@ -252,12 +265,12 @@ class ViscaUI(QMainWindow, form_class):
         if debug : print'from UI :','focus_far_speed',speed
         v.focus_far_speed(speed)
     
-    def on_focus_direct_valueChanged(self,focus):
-        if debug : print'from UI :','focus_direct',focus
-        v.focus_direct(focus)
+    def on_focus_direct_valueChanged(self, value):
+        if debug : print'from UI :','focus', value
+        v.focus = value
     
-    def on_focus_nearlimit_valueChanged(self,nearlimit):
-        if debug : print'from UI :','focus_nearlimit',nearlimit
+    def on_focus_nearlimit_valueChanged(self, nearlimit):
+        if debug : print'from UI :','focus_nearlimit', nearlimit
         v.focus_nearlimit(nearlimit)
 
     def on_pan_speed_valueChanged(self,value):
