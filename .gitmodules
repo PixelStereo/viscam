@@ -1,9 +1,3 @@
-[submodule "libs/pydevicemanager"]
-	path = libs/pydevicemanager
-	url = https://github.com/PixelStereo/pydevicemanager.git
-[submodule "libs/pyvisca"]
-	path = libs/pyvisca
-	url = https://github.com/PixelStereo/PyVisca.git
 [submodule "3rdparty/pyvisca"]
 	path = 3rdparty/pyvisca
 	url = https://github.com/PixelStereo/PyVisca.git
