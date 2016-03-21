@@ -1,5 +1,5 @@
 def scale(value, old_min, old_max, new_min, new_max):
-	return (((value - old_min) * (new_max - new_min)) / (old_max - old_min)) + new_min
+	return (float(((value - old_min) * (new_max - new_min))) / (old_max - old_min)) + new_min
 
 def degree_to_visca(value, what, flip=False):
 	if what == 'pan':
@@ -20,7 +20,7 @@ def degree_to_visca(value, what, flip=False):
 			old_max = 20
 			new_min = 271
 			new_max = 47152
-	return scale(value, old_min, old_max, new_min, new_max)
+	return int(scale(value, old_min, old_max, new_min, new_max))
 
 def visca_to_degree(value, what, flip=False):
 	if what == 'pan':
@@ -41,7 +41,8 @@ def visca_to_degree(value, what, flip=False):
 			old_max = 47152
 			new_min = -90
 			new_max = 20
-	return scale(value, old_min, old_max, new_min, new_max)
+	value = scale(value, old_min, old_max, new_min, new_max)
+	return round(value, 2)
 
-print degree_to_visca(0, 'tilt', True)
-print visca_to_degree(38628, 'tilt', True)
+translation = degree_to_visca(0, 'tilt', True)
+print visca_to_degree(translation, 'tilt', True)
