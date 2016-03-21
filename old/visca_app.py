@@ -2,47 +2,37 @@
 # -*- coding: utf-8 -*-
 
 import os, sys
-# for development of viscam, use git version
-_path = os.path.abspath('./../libs')
-sys.path.append(_path)
+# for development of pyCamera, use git version
+libs_path = os.path.abspath('./../3rdparty/pyvisca')
+sys.path.append(libs_path)
 
-from pydevicemanager.devicemanager import OSCServer
-from pyvisca.PyVisca import Visca, _cmd_adress_set, _if_clear,Serial
+from pyvisca.PyVisca import Viscam
 
-debug = True
+# a camera is created in visca_app
+# create a visca bus object
+cams = Viscam()
 
-# create a serial object
-serial = Serial()
+# get a list of serial ports available and select the last one
+ports = cams.serial.listports()
+
+port = None
+for item in ports:
+    if 'usbserial' in item:
+        port = item
+if not port:
+    port = ports[0]
+print('serial port opening : ' + port)
+
 # open a connection on the serial object
-serial.open(portname='/dev/tty.usbserial-FTFNNBFM')
-v = Visca(serial)
-
-if debug:
-	print '-----pyvisca module initialisation-----'
-cams = _cmd_adress_set(serial)
-if debug:
-	print 'is there a camera somewhere? aka address_set :',cams
-clear = _if_clear(serial)
-if debug:
-	print 'clear all the camera buffers aka _if_clear :',clear
-if debug:
-	print 'Turn off digital zoom aka zoom_digital(False)'
-if debug:
-	print v.zoom_digital(False).encode('hex')
-if debug:
-	print 'trig from APP :','datascreen off'
-if debug:
-	print v.noOSD().encode('hex')
+cams.reset(port)
+cams = cams.get_instances()
+v = cams[0]
 
 # create OSC server for binding to v (instance of VISCA)
-osc = OSCServer(v, 22222, name='span')
-
-
-if debug:
-	print('----------- VISCA APP LOADED AND RUNNING----------------')
-
-
-if __name__ == '__main__':
-	print qq.q
-	while not qq.q.empty():
-		print qq.q.get()
+libs_path = os.path.abspath('./../3rdparty')
+sys.path.append(libs_path)
+from pydevicemanager.devicemanager import OSCServer
+#osc = OSCServer(v, 22222, name='span')
+"""
+FIX ME : the OSC server is not running WELL !!!!!
+"""
