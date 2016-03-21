@@ -1,57 +1,47 @@
+def scale(value, old_min, old_max, new_min, new_max):
+	return (((value - old_min) * (new_max - new_min)) / (old_max - old_min)) + new_min
 
-def translate(reply):
-	reply = reply.encode('hex')
-	def hex_unpack(zoom, L, size=2):
-		part = zoom[:size]
-		zoom = zoom[size:]
-		L.append(part)
-		if zoom:
-			hex_unpack(zoom, L)
-			return L
-	reply = hex_unpack(reply, [])
-	a = reply[0]
-	b = reply[1]
-	c = reply[2]
-	d = reply[3]
-	a=int(a,16)
-	b=int(b,16)
-	c=int(c,16)
-	d=int(d,16)
-	reply = ((((((16*d)+c)*16)+b)*16)+a)
-	return reply
+def degree_to_visca(value, what, flip=False):
+	if what == 'pan':
+		# value must be between -170 & 170
+		old_min = -170
+		old_max = 170
+		new_min = 45537
+		new_max = 24094
+	elif what == 'tilt':
+		# value must be between -20 & 90
+		old_min = -20
+		old_max = 90
+		new_min = 22479
+		new_max = 4080
+		if flip:
+			# value must be between -90 & 20
+			old_min = -90
+			old_max = 20
+			new_min = 271
+			new_max = 47152
+	return scale(value, old_min, old_max, new_min, new_max)
 
-reply = '\x0E'+'\x01'+'\x0E'+'\x05'
-print 'E1E5 ->', translate(reply)
-reply = '\x01'+'\x0E'+'\x01'+'\x0B'
-print '1E1B ->', translate(reply)
+def visca_to_degree(value, what, flip=False):
+	if what == 'pan':
+		# value must be between -170 & 170
+		old_min = 45537
+		old_max = 24094
+		new_min = -170
+		new_max = 170
+	elif what == 'tilt':
+		# value must be between -20 & 90
+		old_min = 22479
+		old_max = 4080
+		new_min = -20
+		new_max = 90
+		if flip:
+			# value must be between -90 & 20
+			old_min = 271
+			old_max = 47152
+			new_min = -90
+			new_max = 20
+	return scale(value, old_min, old_max, new_min, new_max)
 
-reply = '\x0F'+'\x0C'+'\x07'+'\x05'
-print 'FC75 ->', translate(reply)
-reply = '\x00'+'\x0F'+'\x0F'+'\x00'
-print '0FF0 ->', translate(reply)
-
-reply = '\x0F'+'\x00'+'\x01'+'\x00'
-print 'F010 ->', translate(reply)
-reply = '\x00'+'\x03'+'\x08'+'\x0B'
-print '038B ->', translate(reply)
-
-OldValue = 0
-OldMin = -170
-OldMax = 170
-NewMax = 24094
-NewMin = 45537
-OldRange = (OldMax - OldMin)  
-NewRange = (NewMax - NewMin)  
-NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
-print NewValue
-
-"""
-This is the result code
-"""
-reply = 127
-# convert degree to visca pan
-NewValue = (((reply - -170) * (24094 - 45537)) / (170 - -170)) + 45537
-# convert visca pan to degree
-NewValue = (((NewValue - 45537) * (170 - -170)) / (24094 - 45537)) + -170
-
-print NewValue
+print degree_to_visca(0, 'tilt', True)
+print visca_to_degree(38628, 'tilt', True)
