@@ -20,8 +20,6 @@ def translate(reply):
 	reply = ((((((16*d)+c)*16)+b)*16)+a)
 	return reply
 
-
-
 reply = '\x0E'+'\x01'+'\x0E'+'\x05'
 print 'E1E5',translate(reply)
 reply = '\x01'+'\x0E'+'\x01'+'\x0B'
@@ -45,4 +43,12 @@ NewMin = 45537
 OldRange = (OldMax - OldMin)  
 NewRange = (NewMax - NewMin)  
 NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
+print NewValue
+
+"""
+This is the result code
+"""
+reply = 127
+NewValue = (((reply - -170) * (24094 - 45537)) / (170 - -170)) + 45537
+NewValue = (((NewValue - 45537) * (170 - -170)) / (24094 - 45537)) + -170
 print NewValue
