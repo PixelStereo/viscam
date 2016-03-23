@@ -33,13 +33,3 @@ libs_path = os.path.abspath('./../3rdparty')
 sys.path.append(libs_path)
 from pydevicemanager.devicemanager import OSCServer
 osc = OSCServer(v, 22222, name='span')
-"""
-FIX ME : the OSC server is not running WELL !!!!!
-"""
-
-#from time import sleep
-#sleep(3)
-while 1:
-	pass
-else:
-	quit()

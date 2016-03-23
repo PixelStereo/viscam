@@ -30,6 +30,8 @@ class ViscaUI(QMainWindow, form_class):
         self.pan_value = 0
         self.tilt_value = 0
         self.tilt_speed = 17
+        self.focus_near_speed = 4
+        self.focus_near_speed = 4
         self.pan_speed = 18
         power = v._query('power') 
         self.power.setChecked(power)
@@ -198,12 +200,12 @@ class ViscaUI(QMainWindow, form_class):
     def on_focus_mode_currentIndexChanged(self, mode):
         if type(mode) == unicode:
             mode = mode.encode('utf-8')
-        v.focus_mode(mode)
+        v.focus_auto = mode
         sleep(0.1)
         focus = v._query('focus')
         self.focus_direct_value.setValue(focus)
         sleep(0.1)
-        nearlimit = v._query('nearlimit')
+        nearlimit = v._query('focus_nearlimit')
         self.focus_nearlimit_value.setValue(nearlimit)
 
     def on_focus_near_pressed(self):
@@ -220,11 +222,11 @@ class ViscaUI(QMainWindow, form_class):
         v.focus_stop()
         self.focus_refresh()
 
-    def on_focus_near_speed_valueChanged(self,speed):
-        v.focus_near_speed(speed)
+    def on_focus_near_speed_valueChanged(self, speed):
+        self.focus_near_speed = speed
 
-    def on_focus_far_speed_valueChanged(self,speed):
-        v.focus_far_speed(speed)
+    def on_focus_far_speed_valueChanged(self, speed):
+        self.focus_far_speed = speed
     
     def on_focus_direct_valueChanged(self, value):
         v.focus = value
@@ -287,11 +289,10 @@ class ViscaUI(QMainWindow, form_class):
         self.tilt.setValue(tilt)
         self.pan.setValue(pan)
 
-    def on_WB_currentIndexChanged(self,index):
-        if type(index) == unicode:
-            index = index.encode('utf-8')
-            if debug : print 'WB',index
-            v.WB(index)
+    def on_WB_currentTextChanged(self, text):
+        if type(text) == unicode:
+            text = text.encode('utf-8')
+            v.WB = text
 
 
 if __name__ == "__main__":
