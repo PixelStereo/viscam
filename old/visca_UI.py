@@ -4,12 +4,14 @@
 import os
 import sys
 from time import sleep
-from PyQt5.uic import loadUiType,loadUi
-from PyQt5.QtGui import  QStandardItemModel , QStandardItem
+from PyQt5.uic import loadUiType, loadUi
+from PyQt5.QtGui import  QStandardItemModel, QStandardItem
 from PyQt5.QtCore import pyqtSlot, QDir, QAbstractListModel, Qt
 from PyQt5.QtWidgets import QWidget, QApplication, QHBoxLayout, QDialog, QListView, QListWidget, QPushButton, \
                             QTableWidget, QTableView, QFileDialog, QTableWidgetItem, QWidget, QTreeView, QMainWindow
 
+import sys
+print(sys.version)
 
 import visca_app
 
@@ -32,13 +34,15 @@ class ViscaUI(QMainWindow, form_class):
         self.tilt_speed = 17
         self.focus_near_speed = 4
         self.focus_near_speed = 4
+        self.zoom_tele_speed = 3
+        self.zoom_wide_speed = 3
         self.pan_speed = 18
         power = v._query('power') 
         self.power.setChecked(power)
         zoom = v._query('zoom')
         self.zoom_direct_value.setValue(zoom)
-        self.zoom_tele_speed_label.setText(str(0))
-        self.zoom_wide_speed_label.setText(str(0))
+        self.zoom_tele_speed_label.setText(str(self.zoom_tele_speed))
+        self.zoom_wide_speed_label.setText(str(self.zoom_tele_speed))
         focus = v._query('focus')
         self.focus_direct_value.setValue(focus)
         nearlimit = v._query('focus_nearlimit')
@@ -46,6 +50,8 @@ class ViscaUI(QMainWindow, form_class):
         pan,tilt = v._query('pan_tilt')
         self.tilt.setValue(tilt)
         self.pan.setValue(pan)
+        v.IR_auto = False
+        print v._query('IR_auto')
         # exposition parameters
         IR = v._query('IR')
         self.IR.setChecked(IR)
@@ -175,10 +181,10 @@ class ViscaUI(QMainWindow, form_class):
         v.power = state
     
     def on_zoom_tele_pressed(self):
-        v.zoom_tele()
+        v.zoom_tele(self.zoom_tele_speed)
 
     def on_zoom_wide_pressed(self):
-        v.zoom_wide()
+        v.zoom_wide(self.zoom_wide_speed)
 
     def zoom_refresh(self):
         zoom = v._query('zoom')
@@ -189,20 +195,23 @@ class ViscaUI(QMainWindow, form_class):
         self.zoom_refresh()
 
     def on_zoom_tele_speed_valueChanged(self, speed):
-        v.zoom_tele_speed(speed)
+        self.zoom_tele_speed = speed
 
     def on_zoom_wide_speed_valueChanged(self, speed):
-        v.zoom_wide_speed(speed)
+        self.zoom_wide_speed = speed
     
     def on_zoom_direct_valueChanged(self, zoom):
         v.zoom = zoom
 
-    def on_focus_mode_currentIndexChanged(self, mode):
-        if type(mode) == unicode:
-            mode = mode.encode('utf-8')
-        v.focus_auto = mode
+    def on_focus_auto_stateChanged(self, state):
+        if state:
+            v.focus_auto = 0
+        else:
+            v.focus_auto = 1
         sleep(0.1)
         focus = v._query('focus')
+        focus_auto___ = v._query('focus_auto')
+        print '------autofocus is :', focus_auto___
         self.focus_direct_value.setValue(focus)
         sleep(0.1)
         nearlimit = v._query('focus_nearlimit')
@@ -293,6 +302,10 @@ class ViscaUI(QMainWindow, form_class):
         if type(text) == unicode:
             text = text.encode('utf-8')
             v.WB = text
+    def on_FX_currentTextChanged(self, text):
+        if type(text) == unicode:
+            text = text.encode('utf-8')
+            v.FX = text
 
 
 if __name__ == "__main__":

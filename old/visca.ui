@@ -225,25 +225,18 @@
        <number>54536</number>
       </property>
      </widget>
-     <widget class="QComboBox" name="focus_mode">
+     <widget class="QCheckBox" name="focus_auto">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>20</y>
-        <width>80</width>
-        <height>26</height>
+        <width>87</width>
+        <height>20</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>auto</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>manual</string>
-       </property>
-      </item>
+      <property name="text">
+       <string>manual focus</string>
+      </property>
      </widget>
     </widget>
     <widget class="QGroupBox" name="memory_group">
@@ -1646,6 +1639,22 @@
     <hint type="destinationlabel">
      <x>615</x>
      <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>focus_auto</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>focus_manual_group</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>509</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>586</x>
+     <y>154</y>
     </hint>
    </hints>
   </connection>
