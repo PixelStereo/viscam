@@ -6,7 +6,7 @@ import os, sys
 libs_path = os.path.abspath('./../3rdparty/pyvisca')
 sys.path.append(libs_path)
 
-from pyvisca.PyVisca import Viscam
+from pyviscam.broadcast import Viscam
 
 # a camera is created in visca_app
 # create a visca bus object

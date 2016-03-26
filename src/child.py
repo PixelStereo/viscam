@@ -7,10 +7,10 @@ from PyQt5.QtWidgets import QFileDialog,QListWidgetItem,QApplication,QMessageBox
 from PyQt5.QtWidgets import QGroupBox,QHBoxLayout,QLabel,QLineEdit,QListWidget,QAbstractItemView,QPushButton,QGridLayout
 
 # for development of pyCamera, use git version
-pyvisca_path = os.path.abspath('./../libs')
+pyvisca_path = os.path.abspath('./../3rdparty')
 sys.path.append(pyvisca_path)
 
-from pyvisca.PyVisca import _cmd_adress_set , _if_clear, Visca
+from pyviscam.broadcast import _cmd_adress_set , _if_clear, Visca
 
 class Document(object):
     """docstring for Document"""
