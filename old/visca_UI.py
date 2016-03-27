@@ -14,8 +14,13 @@ import sys
 print(sys.version)
 
 import visca_app
-
 v = visca_app.v
+
+try:
+    # stylesheet
+    import qdarkstyle
+except:
+    pass
 
 debug = True
 update_run = False
@@ -29,14 +34,16 @@ class ViscaUI(QMainWindow, form_class):
     def __init__(self):
         super(ViscaUI, self).__init__()
         self.setupUi(self)
-        self.pan_value = 0
-        self.tilt_value = 0
-        self.tilt_speed = 17
+        # initialize speeds
+        #self.pan_speed = 5
+        #self.tilt_speed = 5
+        self.pan_speed.setValue(5)
+        self.tilt_speed.setValue(5)
         self.focus_near_speed = 4
         self.focus_near_speed = 4
         self.zoom_tele_speed = 3
         self.zoom_wide_speed = 3
-        self.pan_speed = 18
+        # query about params
         power = v._query('power') 
         self.power.setChecked(power)
         zoom = v._query('zoom')
@@ -51,7 +58,6 @@ class ViscaUI(QMainWindow, form_class):
         self.tilt.setValue(tilt)
         self.pan.setValue(pan)
         v.IR_auto = False
-        print v._query('IR_auto')
         # exposition parameters
         IR = v._query('IR')
         self.IR.setChecked(IR)
@@ -60,22 +66,27 @@ class ViscaUI(QMainWindow, form_class):
         v.video = (720, 50)
         VIDEO = v._query('video')
         if AE != 'auto':
-            aperture = v._query('aperture')
-            if aperture:
-                self.aperture.setCurrentIndex(aperture)
-            iris = v._query('iris')
-            if iris:
-                self.iris.setCurrentIndex(iris)
-            shutter = v._query('shutter')
-            if shutter:
-                self.shutter.setCurrentIndex(shutter)
-            gain = v._query('gain')
-            if gain:
-                self.gain.setCurrentIndex(gain)
+        	# if expo is manual, refresh values
+        	self.expo_refresh()
         if self.AE.currentText() == 'auto':
             self.AE_manual.setVisible(False)
     
-    def on_AE_currentIndexChanged(self,mode):
+    def expo_refresh(self):
+        aperture = v._query('aperture')
+        if aperture:
+            self.aperture.setCurrentText(str(aperture))
+        iris = v._query('iris')
+        if iris:
+            self.iris.setCurrentText(str(iris))
+        shutter = v._query('shutter')
+        if shutter:
+            self.shutter.setCurrentText(str(shutter))
+        gain = v._query('gain')
+        if gain:
+            self.gain.setCurrentText(str(gain))
+
+    def on_AE_currentIndexChanged(self, mode):
+    	print mode
         if type(mode) == unicode:
             mode = mode.encode('utf-8')
             v.AE = mode
@@ -89,6 +100,7 @@ class ViscaUI(QMainWindow, form_class):
                 self.iris_label.setVisible(True)
                 self.gain.setVisible(True)
                 self.gain_label.setVisible(True)
+                self.expo_refresh()
             if mode == 'shutter':
                 self.AE_manual.setVisible(True)
                 self.shutter.setVisible(True)
@@ -97,6 +109,7 @@ class ViscaUI(QMainWindow, form_class):
                 self.iris_label.setVisible(False)
                 self.gain.setVisible(False)
                 self.gain_label.setVisible(False)
+                self.expo_refresh()
             if mode == 'iris':
                 self.AE_manual.setVisible(True)
                 self.iris.setVisible(True)
@@ -105,6 +118,7 @@ class ViscaUI(QMainWindow, form_class):
                 self.shutter_label.setVisible(False)
                 self.gain.setVisible(False)
                 self.gain_label.setVisible(False)
+                self.expo_refresh()
 
     def on_shutter_currentIndexChanged(self, index):
         if type(index) == unicode:
@@ -293,6 +307,10 @@ class ViscaUI(QMainWindow, form_class):
         v.stop()
         self.pan_tilt_refresh()
 
+    def on_gamma_valueChanged(self, value):
+    	v.gamma = int(value)
+    	v._query('gamma')
+
     def pan_tilt_refresh(self):
         pan, tilt = v._query('pan_tilt')
         self.tilt.setValue(tilt)
@@ -313,5 +331,9 @@ if __name__ == "__main__":
     appWindow = ViscaUI()
     appWindow.move(5,12)
     appWindow.show()
+    try:
+        app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+    except:
+        pass
     sys.exit(app.exec_())
     sdRef.close()

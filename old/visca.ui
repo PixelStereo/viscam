@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>835</width>
-    <height>327</height>
+    <width>665</width>
+    <height>539</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>10</y>
       <width>87</width>
       <height>20</height>
      </rect>
@@ -27,23 +27,205 @@
      <string>power</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="visca_group">
+   <widget class="QGroupBox" name="memory_group">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
-      <width>821</width>
-      <height>261</height>
+      <y>30</y>
+      <width>121</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="title">
-     <string/>
+     <string>memory</string>
     </property>
+    <widget class="QGroupBox" name="memory_set_group">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>61</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>set</string>
+     </property>
+     <widget class="QRadioButton" name="mem_set_1">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>30</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_set_2">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>50</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_set_3">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>70</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_set_4">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>90</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_set_5">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>110</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="memory_recall_group">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>61</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>recall</string>
+     </property>
+     <widget class="QRadioButton" name="mem_recall_1">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>30</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_recall_2">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>50</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_recall_3">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>70</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_recall_4">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>90</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="mem_recall_5">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>110</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="memory_group_2">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>30</y>
+      <width>161</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>exposition</string>
+    </property>
+    <widget class="QLabel" name="AE_label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>32</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>AE</string>
+     </property>
+    </widget>
     <widget class="QGroupBox" name="AE_manual">
      <property name="geometry">
       <rect>
-       <x>6</x>
-       <y>27</y>
+       <x>10</x>
+       <y>52</y>
        <width>141</width>
        <height>81</height>
       </rect>
@@ -72,67 +254,67 @@
       </item>
       <item>
        <property name="text">
-        <string>F14</string>
+        <string>14</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F11</string>
+        <string>11</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F9.6</string>
+        <string>9.6</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F8</string>
+        <string>8</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F6.8</string>
+        <string>6.8</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F5.6</string>
+        <string>5.6</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F4.8</string>
+        <string>4.8</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F4</string>
+        <string>4</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F3.4</string>
+        <string>3.4</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F2.8</string>
+        <string>2.8</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F2.4</string>
+        <string>2.4</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F2</string>
+        <string>2</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>F1.6</string>
+        <string>1.6</string>
        </property>
       </item>
      </widget>
@@ -191,112 +373,112 @@
       </property>
       <item>
        <property name="text">
-        <string>1/1</string>
+        <string>1</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/2</string>
+        <string>2</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/3</string>
+        <string>3</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/6</string>
+        <string>6</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/12</string>
+        <string>12</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/25</string>
+        <string>25</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/50</string>
+        <string>50</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/75</string>
+        <string>75</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/100</string>
+        <string>100</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/120</string>
+        <string>120</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/150</string>
+        <string>150</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/215</string>
+        <string>215</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/300</string>
+        <string>300</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/425</string>
+        <string>425</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/600</string>
+        <string>600</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/1000</string>
+        <string>1000</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/1250</string>
+        <string>1250</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/1750</string>
+        <string>1750</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/2500</string>
+        <string>2500</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/3500</string>
+        <string>3500</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/6000</string>
+        <string>6000</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>1/10000</string>
+        <string>10000</string>
        </property>
       </item>
      </widget>
@@ -316,104 +498,91 @@
       </property>
       <item>
        <property name="text">
-        <string>-3db</string>
+        <string>-3</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>0db</string>
+        <string>0</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>2db</string>
+        <string>2</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>4db</string>
+        <string>4</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>6db</string>
+        <string>6</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>8db</string>
+        <string>8</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>10db</string>
+        <string>10</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>12db</string>
+        <string>12</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>14db</string>
+        <string>14</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>16db</string>
+        <string>16</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>18db</string>
+        <string>18</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>20db</string>
+        <string>20</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>22db</string>
+        <string>22</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>24db</string>
+        <string>24</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>26db</string>
+        <string>26</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>28db</string>
+        <string>28</string>
        </property>
       </item>
      </widget>
     </widget>
-    <widget class="QLabel" name="AE_label">
-     <property name="geometry">
-      <rect>
-       <x>6</x>
-       <y>7</y>
-       <width>31</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>AE</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="AE">
      <property name="geometry">
       <rect>
-       <x>26</x>
-       <y>2</y>
+       <x>30</x>
+       <y>27</y>
        <width>80</width>
        <height>26</height>
       </rect>
@@ -439,652 +608,286 @@
       </property>
      </item>
     </widget>
-    <widget class="QGroupBox" name="pt_group">
+   </widget>
+   <widget class="QGroupBox" name="zoom_grou">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>190</y>
+      <width>341</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>zoom</string>
+    </property>
+    <widget class="QSlider" name="zoom_wide_speed">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>115</y>
-       <width>301</width>
-       <height>141</height>
+       <x>10</x>
+       <y>57</y>
+       <width>171</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>7</number>
+     </property>
+     <property name="pageStep">
+      <number>7</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QSlider" name="zoom_direct">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>83</y>
+       <width>191</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>16384</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QSlider" name="zoom_tele_speed">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>171</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>7</number>
+     </property>
+     <property name="pageStep">
+      <number>7</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="zoom_tele">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>26</y>
+       <width>60</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>tele</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="zoom_stop">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>27</y>
+       <width>71</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>stop</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="zoom_direct_value">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>85</y>
+       <width>81</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>16384</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="zoom_wide">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>55</y>
+       <width>60</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>wide</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="zoom_tele_speed_label">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>32</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="zoom_wide_speed_label">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>59</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <zorder>zoom_tele</zorder>
+    <zorder>zoom_wide</zorder>
+    <zorder>zoom_wide_speed</zorder>
+    <zorder>zoom_direct</zorder>
+    <zorder>zoom_tele_speed</zorder>
+    <zorder>zoom_stop</zorder>
+    <zorder>zoom_direct_value</zorder>
+    <zorder>zoom_tele_speed_label</zorder>
+    <zorder>zoom_wide_speed_label</zorder>
+   </widget>
+   <widget class="QGroupBox" name="focus_group">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>300</y>
+      <width>341</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>focus</string>
+    </property>
+    <widget class="QSpinBox" name="focus_direct_value">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>60</y>
+       <width>81</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>54536</number>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="focus_manual_group">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>241</width>
+       <height>111</height>
       </rect>
      </property>
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="right">
+     <widget class="QLabel" name="focus_far_speed_label">
       <property name="geometry">
        <rect>
-        <x>149</x>
-        <y>30</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>right</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="stop">
-      <property name="geometry">
-       <rect>
-        <x>74</x>
-        <y>30</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>stop</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="left">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>30</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>left</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="upleft">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>1</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>upleft</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="upright">
-      <property name="geometry">
-       <rect>
-        <x>149</x>
-        <y>1</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>upright</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="up">
-      <property name="geometry">
-       <rect>
-        <x>74</x>
-        <y>1</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>up</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="downleft">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>59</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>downleft</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="down">
-      <property name="geometry">
-       <rect>
-        <x>74</x>
-        <y>59</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>down</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="downright">
-      <property name="geometry">
-       <rect>
-        <x>149</x>
-        <y>59</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>downright</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="pan_speed">
-      <property name="geometry">
-       <rect>
-        <x>238</x>
-        <y>21</y>
-        <width>61</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="minimum">
-       <number>1</number>
-      </property>
-      <property name="maximum">
-       <number>18</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="tilt_speed">
-      <property name="geometry">
-       <rect>
-        <x>238</x>
-        <y>67</y>
-        <width>61</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="minimum">
-       <number>1</number>
-      </property>
-      <property name="maximum">
-       <number>17</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="pan_speed_label">
-      <property name="geometry">
-       <rect>
-        <x>235</x>
-        <y>5</y>
-        <width>71</width>
-        <height>10</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>pan speed</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="tilt_speed_label">
-      <property name="geometry">
-       <rect>
-        <x>236</x>
-        <y>50</y>
-        <width>71</width>
+        <x>27</x>
+        <y>80</y>
+        <width>21</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>tilt speed</string>
+       <string>0</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="home">
+     <widget class="QPushButton" name="focus_far">
+      <property name="geometry">
+       <rect>
+        <x>-3</x>
+        <y>40</y>
+        <width>60</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>far</string>
+      </property>
+     </widget>
+     <widget class="QSlider" name="focus_direct">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>104</y>
-        <width>85</width>
-        <height>40</height>
+        <y>12</y>
+        <width>221</width>
+        <height>22</height>
        </rect>
-      </property>
-      <property name="text">
-       <string>home</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="reset">
-      <property name="geometry">
-       <rect>
-        <x>74</x>
-        <y>104</y>
-        <width>85</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>reset</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="pan">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>94</y>
-        <width>100</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="minimum">
-       <number>-999999</number>
       </property>
       <property name="maximum">
-       <number>999999</number>
+       <number>65536</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QSpinBox" name="tilt">
+     <widget class="QSlider" name="focus_nearlimit">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>116</y>
-        <width>100</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="minimum">
-       <number>-999999</number>
-      </property>
-      <property name="maximum">
-       <number>999999</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="pan_speed_label_2">
-      <property name="geometry">
-       <rect>
-        <x>162</x>
+        <x>7</x>
         <y>96</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>pan</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="pan_speed_label_3">
-      <property name="geometry">
-       <rect>
-        <x>162</x>
-        <y>120</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>tilt</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QCheckBox" name="IR">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>0</y>
-       <width>41</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::RightToLeft</enum>
-     </property>
-     <property name="text">
-      <string>IR</string>
-     </property>
-    </widget>
-    <widget class="QGroupBox" name="AE_manual_2">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>115</y>
-       <width>171</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Settings</string>
-     </property>
-     <widget class="QLabel" name="aperture_label">
-      <property name="geometry">
-       <rect>
-        <x>16</x>
-        <y>21</y>
-        <width>60</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>aperture</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="aperture">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>23</y>
-        <width>80</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <item>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>5</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>6</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>7</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>8</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>9</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>10</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>11</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>12</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>13</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>14</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>15</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="WB">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>45</y>
-        <width>80</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>auto</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>indoor</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>outdoor</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="WB_label">
-      <property name="geometry">
-       <rect>
-        <x>25</x>
-        <y>46</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>WB</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="slowshutter">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>67</y>
-        <width>80</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>auto</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>manual</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="WB_label_3">
-      <property name="geometry">
-       <rect>
-        <x>6</x>
-        <y>67</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>slowshutter</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="FX">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>89</y>
-        <width>80</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>normal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>negart</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>BW</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="WB_label_2">
-      <property name="geometry">
-       <rect>
-        <x>24</x>
-        <y>90</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>FX</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="gamma">
-      <property name="geometry">
-       <rect>
-        <x>74</x>
-        <y>113</y>
-        <width>61</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="minimum">
-       <number>0</number>
-      </property>
-      <property name="maximum">
-       <number>4</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="WB_label_4">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>119</y>
-        <width>51</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>gamma</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="zoom_grou">
-     <property name="geometry">
-      <rect>
-       <x>474</x>
-       <y>-4</y>
-       <width>341</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>zoom</string>
-     </property>
-     <widget class="QSlider" name="zoom_wide_speed">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>47</y>
-        <width>171</width>
+        <width>221</width>
         <height>22</height>
        </rect>
       </property>
       <property name="maximum">
-       <number>7</number>
-      </property>
-      <property name="pageStep">
-       <number>7</number>
+       <number>65536</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QSlider" name="zoom_direct">
+     <widget class="QSlider" name="focus_far_speed">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>73</y>
-        <width>191</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <number>16384</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QSlider" name="zoom_tele_speed">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>171</width>
-        <height>22</height>
+        <x>40</x>
+        <y>40</y>
+        <width>41</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="maximum">
        <number>7</number>
       </property>
-      <property name="pageStep">
-       <number>7</number>
-      </property>
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QPushButton" name="zoom_tele">
+     <widget class="QPushButton" name="focus_stop">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>16</y>
-        <width>60</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>tele</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="zoom_stop">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>17</y>
+        <x>70</x>
+        <y>30</y>
         <width>71</width>
         <height>51</height>
        </rect>
@@ -1093,43 +896,24 @@
        <string>stop</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="zoom_direct_value">
+     <widget class="QPushButton" name="focus_near">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>75</y>
-        <width>81</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="minimum">
-       <number>0</number>
-      </property>
-      <property name="maximum">
-       <number>16384</number>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="zoom_wide">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>45</y>
+        <x>140</x>
+        <y>40</y>
         <width>60</width>
         <height>40</height>
        </rect>
       </property>
       <property name="text">
-       <string>wide</string>
+       <string>near</string>
       </property>
      </widget>
-     <widget class="QLabel" name="zoom_tele_speed_label">
+     <widget class="QLabel" name="focus_near_speed_label">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>22</y>
+        <x>170</x>
+        <y>80</y>
         <width>21</width>
         <height>16</height>
        </rect>
@@ -1138,412 +922,601 @@
        <string>0</string>
       </property>
      </widget>
-     <widget class="QLabel" name="zoom_wide_speed_label">
+     <widget class="QSlider" name="focus_near_speed">
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>49</y>
-        <width>21</width>
-        <height>16</height>
+        <y>40</y>
+        <width>41</width>
+        <height>61</height>
        </rect>
       </property>
-      <property name="text">
-       <string>0</string>
+      <property name="maximum">
+       <number>7</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <zorder>zoom_tele</zorder>
-     <zorder>zoom_wide</zorder>
-     <zorder>zoom_wide_speed</zorder>
-     <zorder>zoom_direct</zorder>
-     <zorder>zoom_tele_speed</zorder>
-     <zorder>zoom_stop</zorder>
-     <zorder>zoom_direct_value</zorder>
-     <zorder>zoom_tele_speed_label</zorder>
-     <zorder>zoom_wide_speed_label</zorder>
     </widget>
-    <widget class="QGroupBox" name="focus_group">
+    <widget class="QSpinBox" name="focus_nearlimit_value">
      <property name="geometry">
       <rect>
-       <x>474</x>
-       <y>96</y>
-       <width>341</width>
-       <height>161</height>
+       <x>260</x>
+       <y>140</y>
+       <width>81</width>
+       <height>24</height>
       </rect>
      </property>
-     <property name="title">
-      <string>focus</string>
+     <property name="keyboardTracking">
+      <bool>false</bool>
      </property>
-     <widget class="QSpinBox" name="focus_direct_value">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>50</y>
-        <width>81</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>54536</number>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="focus_manual_group">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>241</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QLabel" name="focus_far_speed_label">
-       <property name="geometry">
-        <rect>
-         <x>27</x>
-         <y>70</y>
-         <width>21</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="focus_far">
-       <property name="geometry">
-        <rect>
-         <x>-3</x>
-         <y>30</y>
-         <width>60</width>
-         <height>40</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>far</string>
-       </property>
-      </widget>
-      <widget class="QSlider" name="focus_direct">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>2</y>
-         <width>221</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>65536</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QSlider" name="focus_nearlimit">
-       <property name="geometry">
-        <rect>
-         <x>7</x>
-         <y>86</y>
-         <width>221</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>65536</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QSlider" name="focus_far_speed">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>30</y>
-         <width>41</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>7</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="focus_stop">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>20</y>
-         <width>71</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>stop</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="focus_near">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>30</y>
-         <width>60</width>
-         <height>40</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>near</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="focus_near_speed_label">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>70</y>
-         <width>21</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </widget>
-      <widget class="QSlider" name="focus_near_speed">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>30</y>
-         <width>41</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>7</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QSpinBox" name="focus_nearlimit_value">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>130</y>
-        <width>81</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="keyboardTracking">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>54536</number>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="focus_auto">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>87</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>manual focus</string>
-      </property>
-     </widget>
-     <zorder>focus_direct_value</zorder>
-     <zorder>focus_manual_group</zorder>
-     <zorder>focus_nearlimit_value</zorder>
-     <zorder>focus_auto</zorder>
-     <zorder>memory_group</zorder>
+     <property name="maximum">
+      <number>54536</number>
+     </property>
     </widget>
-    <zorder>AE_manual</zorder>
-    <zorder>AE_label</zorder>
-    <zorder>AE</zorder>
-    <zorder>pt_group</zorder>
-    <zorder>IR</zorder>
-    <zorder>AE_manual_2</zorder>
-    <zorder>zoom_grou</zorder>
-    <zorder>focus_group</zorder>
-    <zorder>upright</zorder>
+    <widget class="QCheckBox" name="focus_auto">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>87</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>manual focus</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QGroupBox" name="memory_group">
+   <widget class="QGroupBox" name="AE_manual_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>10</y>
-      <width>81</width>
-      <height>121</height>
+      <x>300</x>
+      <y>30</y>
+      <width>171</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
-     <string/>
+     <string>Settings</string>
     </property>
-    <widget class="QGroupBox" name="memory_set_group">
+    <widget class="QLabel" name="aperture_label">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>41</width>
-       <height>121</height>
+       <x>2</x>
+       <y>28</y>
+       <width>60</width>
+       <height>16</height>
       </rect>
      </property>
-     <property name="title">
-      <string>set</string>
+     <property name="text">
+      <string>aperture</string>
      </property>
-     <widget class="QRadioButton" name="mem_set_1">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>20</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
+    </widget>
+    <widget class="QComboBox" name="aperture">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>80</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>0</string>
       </property>
+     </item>
+     <item>
       <property name="text">
        <string>1</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_set_2">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>40</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     </item>
+     <item>
       <property name="text">
        <string>2</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_set_3">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>60</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     </item>
+     <item>
       <property name="text">
        <string>3</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_set_4">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>80</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     </item>
+     <item>
       <property name="text">
        <string>4</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_set_5">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>100</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     </item>
+     <item>
       <property name="text">
        <string>5</string>
       </property>
-     </widget>
+     </item>
+     <item>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>9</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>10</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>11</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>12</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>13</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>14</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>15</string>
+      </property>
+     </item>
     </widget>
-    <widget class="QGroupBox" name="memory_recall_group">
+    <widget class="QComboBox" name="WB">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>0</y>
-       <width>41</width>
-       <height>121</height>
+       <x>80</x>
+       <y>52</y>
+       <width>80</width>
+       <height>26</height>
       </rect>
      </property>
-     <property name="title">
-      <string>recall</string>
-     </property>
-     <widget class="QRadioButton" name="mem_recall_1">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>20</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     <item>
       <property name="text">
-       <string>1</string>
+       <string>auto</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_recall_2">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>40</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     </item>
+     <item>
       <property name="text">
-       <string>2</string>
+       <string>indoor</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_recall_3">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>60</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
+     </item>
+     <item>
       <property name="text">
-       <string>3</string>
+       <string>outdoor</string>
       </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_recall_4">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>80</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>4</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="mem_recall_5">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>100</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-     </widget>
+     </item>
     </widget>
+    <widget class="QLabel" name="WB_label">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>53</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>WB</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="slowshutter">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>74</y>
+       <width>80</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>auto</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>manual</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="WB_label_3">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>74</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>slowshutter</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="FX">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>96</y>
+       <width>80</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>normal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>negart</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>BW</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="WB_label_2">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>97</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>FX</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="gamma">
+     <property name="geometry">
+      <rect>
+       <x>82</x>
+       <y>120</y>
+       <width>61</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>4</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="WB_label_4">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>126</y>
+       <width>51</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>gamma</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="pt_group">
+    <property name="geometry">
+     <rect>
+      <x>1</x>
+      <y>190</y>
+      <width>281</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>pan tilt</string>
+    </property>
+    <widget class="QPushButton" name="right">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>59</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>right</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stop">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>59</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>stop</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="left">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>59</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>left</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="upleft">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>upleft</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="upright">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>30</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>upright</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="up">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>30</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>up</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="downleft">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>88</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>downleft</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="down">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>88</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>down</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="downright">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>88</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>downright</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="home">
+     <property name="geometry">
+      <rect>
+       <x>65</x>
+       <y>119</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>home</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="reset">
+     <property name="geometry">
+      <rect>
+       <x>139</x>
+       <y>119</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>reset</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="pan">
+     <property name="geometry">
+      <rect>
+       <x>47</x>
+       <y>177</y>
+       <width>61</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>-999999</number>
+     </property>
+     <property name="maximum">
+      <number>999999</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="tilt">
+     <property name="geometry">
+      <rect>
+       <x>47</x>
+       <y>207</y>
+       <width>61</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>-999999</number>
+     </property>
+     <property name="maximum">
+      <number>999999</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pan_speed_label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>pan</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pan_speed_label_3">
+     <property name="geometry">
+      <rect>
+       <x>13</x>
+       <y>209</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>tilt</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="tilt_speed_label">
+     <property name="geometry">
+      <rect>
+       <x>117</x>
+       <y>149</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>speed</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="pan_speed">
+     <property name="geometry">
+      <rect>
+       <x>117</x>
+       <y>177</y>
+       <width>61</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>18</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="tilt_speed">
+     <property name="geometry">
+      <rect>
+       <x>117</x>
+       <y>207</y>
+       <width>61</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>17</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QCheckBox" name="IR">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>6</y>
+      <width>51</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>IR</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1551,7 +1524,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>835</width>
+     <width>665</width>
      <height>22</height>
     </rect>
    </property>
