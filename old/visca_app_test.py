@@ -21,4 +21,4 @@ if __name__ == "__main__" :
 		while 1:
 			osc.server.recv(100)
 	except KeyboardInterrupt:
-		quitclient_address
+		quit()
