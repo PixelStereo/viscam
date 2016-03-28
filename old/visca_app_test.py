@@ -14,9 +14,11 @@ sys.path.append(libs_path)
 from pydevicemanager.devicemanager import OSCServer
 osc = OSCServer(v, 22222, name='span')
 
+
 if __name__ == "__main__" :
-	while 1:
-		try:
-			pass
-		except KeyboardInterrupt:
-			quit()
+	# loop and dispatch messages every 100ms
+	try:
+		while 1:
+			osc.server.recv(100)
+	except KeyboardInterrupt:
+		quitclient_address
