@@ -18,9 +18,15 @@ ports = cams.serial.listports()
 port = None
 for item in ports:
     if 'usbserial' in item:
+    	# this is for osx on my computer for testing
         port = item
 if not port:
-    port = ports[0]
+	try:
+    	port = ports[0]
+    except IndexError:
+    	print 'There is no available ports'
+    	quit()
+
 print('serial port opening : ' + port)
 
 # open a connection on the serial object
