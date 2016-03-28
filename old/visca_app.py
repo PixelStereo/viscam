@@ -22,9 +22,9 @@ for item in ports:
         port = item
 if not port:
 	try:
-    	port = ports[0]
-    except IndexError:
-    	print 'There is no available ports'
+		port = ports[0]
+	except IndexError:
+		print 'There is no available ports'
     	quit()
 
 print('serial port opening : ' + port)
