@@ -12,13 +12,13 @@ v = Viscam('/dev/tty.usbserial-FTFNNBFM').get_instances()[0]
 libs_path = os.path.abspath('./../3rdparty')
 sys.path.append(libs_path)
 from pydevicemanager.devicemanager import OSCServer
-osc = OSCServer(v, 22222, name='span')
-
+osc = OSCServer(v, 22222, name='viscam', threading=True)
 
 if __name__ == "__main__" :
 	# loop and dispatch messages every 100ms
 	try:
 		while 1:
-			osc.server.recv(100)
+			pass
+			#osc.server.recv(10)
 	except KeyboardInterrupt:
 		quit()
