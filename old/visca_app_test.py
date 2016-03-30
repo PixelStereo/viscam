@@ -9,9 +9,9 @@ from pyviscam.broadcast import Viscam
 v = Viscam('/dev/tty.usbserial-FTFNNBFM').get_instances()[0]
 
 # create OSC server for binding to v (instance of VISCA)
-libs_path = os.path.abspath('./../3rdparty')
+libs_path = os.path.abspath('./../3rdparty/pydevicemanager')
 sys.path.append(libs_path)
-from pydevicemanager.devicemanager import OSCServer
+from pydevicemanager.osc import OSCServer
 osc = OSCServer(v, 22222, name='viscam', threading=True)
 
 if __name__ == "__main__" :

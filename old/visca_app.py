@@ -37,5 +37,5 @@ v = cams[0]
 # create OSC server for binding to v (instance of VISCA)
 libs_path = os.path.abspath('./../3rdparty')
 sys.path.append(libs_path)
-from pydevicemanager.devicemanager import OSCServer
+from pydevicemanager.osc import OSCServer
 osc = OSCServer(v, 22222, name='span')
