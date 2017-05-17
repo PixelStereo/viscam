@@ -7,6 +7,9 @@ sys.path.append(libs_path)
 from pyviscam.broadcast import Viscam
 
 v = Viscam('/dev/tty.usbserial-FTFNNBFM').get_instances()[0]
+print(v.video)
+v.video = [1080, 25]
+print(v.video)
 
 # create OSC server for binding to v (instance of VISCA)
 libs_path = os.path.abspath('./../3rdparty/pydevicemanager')
