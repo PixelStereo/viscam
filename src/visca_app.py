@@ -5,6 +5,8 @@ import os, sys
 # for development of pyCamera, use git version
 libs_path = os.path.abspath('./../3rdparty/pyvisca')
 sys.path.append(libs_path)
+libs_path = os.path.abspath('./../3rdparty/pydevicemanager')
+sys.path.append(libs_path)
 
 from pyviscam.broadcast import Viscam
 
