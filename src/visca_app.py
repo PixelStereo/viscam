@@ -26,8 +26,8 @@ if not port:
 	try:
 		port = ports[0]
 	except IndexError:
-		print 'There is no available ports'
-    	quit()
+		print('There is no available ports')
+		quit()
 
 print('serial port opening : ' + port)
 

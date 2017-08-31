@@ -86,7 +86,7 @@ class ViscaUI(QMainWindow, form_class):
             self.gain.setCurrentText(str(gain))
 
     def on_AE_currentIndexChanged(self, mode):
-    	print mode
+        print(mode)
         if type(mode) == unicode:
             mode = mode.encode('utf-8')
             v.AE = mode
@@ -122,25 +122,25 @@ class ViscaUI(QMainWindow, form_class):
 
     def on_shutter_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'shutter', index
+            print('shutter', index)
         else:
             v.shutter = index
 
     def on_iris_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'iris', index
+            print('iris', index)
         else:
             v.iris = index
 
     def on_gain_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'gain', index
+            print('gain', index)
         else:
             v.gain = index
 
     def on_aperture_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'aperture', index
+            print('aperture', index)
         else:
             v.aperture = index
 
@@ -225,7 +225,7 @@ class ViscaUI(QMainWindow, form_class):
         sleep(0.1)
         focus = v._query('focus')
         focus_auto___ = v._query('focus_auto')
-        print '------autofocus is :', focus_auto___
+        print('------autofocus is :', focus_auto___)
         self.focus_direct_value.setValue(focus)
         sleep(0.1)
         nearlimit = v._query('focus_nearlimit')
