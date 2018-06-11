@@ -51,8 +51,8 @@ class Camera(QGroupBox,QModelIndex):
         mainLayout = QGridLayout()
         # Integrate the layout previously created
         mainLayout.addWidget(power_Groupbox, 0, 0)
-        print 'H', power_Groupbox.height()
-        print 'W', power_Groupbox.width()
+        print('H', power_Groupbox.height())
+        print('W', power_Groupbox.width())
         # Integrate main layout to the main window
         self.setLayout(mainLayout)
         self.mainLayout = mainLayout

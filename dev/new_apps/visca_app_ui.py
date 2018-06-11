@@ -195,25 +195,25 @@ class ViscaUI(QMainWindow):
 
     def on_shutter_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'shutter', index
+            print('shutter', index)
         else:
             v.shutter = index
 
     def on_iris_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'iris', index
+            print('iris', index)
         else:
             v.iris = index
 
     def on_gain_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'gain', index
+            print('gain', index)
         else:
             v.gain = index
 
     def on_aperture_currentIndexChanged(self, index):
         if type(index) == unicode:
-            print 'aperture', index
+            print('aperture', index)
         else:
             v.aperture = index
 
@@ -297,7 +297,7 @@ class ViscaUI(QMainWindow):
         sleep(0.1)
         focus = v._query('focus')
         focus_auto___ = v._query('focus_auto')
-        print '------focus_mode-------', focus_auto___
+        print('------focus_mode-------', focus_auto___)
         self.focus_direct_value.setValue(focus)
         sleep(0.1)
         nearlimit = v._query('focus_nearlimit')
