@@ -41,3 +41,11 @@ libs_path = os.path.abspath('./../3rdparty')
 sys.path.append(libs_path)
 from pydevicemanager.osc import OSCServer
 osc = OSCServer(v, 22222, name='span')
+
+if __name__ == "__main__" :
+	# loop and dispatch messages every 100ms
+	try:
+		while 1:
+			osc.server.recv(10)
+	except KeyboardInterrupt:
+		quit()
