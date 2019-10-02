@@ -13,7 +13,6 @@ from pyviscam.broadcast import Viscam
 # a camera is created in visca_app
 # create a visca bus object
 cams = Viscam()
-
 # get a list of serial ports available and select the last one
 ports = cams.serial.listports()
 
@@ -40,7 +39,7 @@ v = cams[0]
 libs_path = os.path.abspath('./../3rdparty')
 sys.path.append(libs_path)
 from pydevicemanager.osc import OSCServer
-osc = OSCServer(v, 22222, name='span')
+osc = OSCServer(v, 22222, name='viscam')
 
 if __name__ == "__main__" :
 	# loop and dispatch messages every 100ms
