@@ -35,5 +35,16 @@ Clone the repository and install dependancies
 
 Launch the app
 ---
-    python2 /Users/reno/Documents/GITs/viscam/src/visca_UI.py 
+    python2 /Users/reno/Documents/GITs/viscam/src/viscam.py 
 
+
+If you had some errors with pyliblo, you can install it by hand
+
+    cd venv/viscam/lib/python2.7/site-packages/
+    wget http://das.nasophon.de/download/pyliblo-0.10.0.tar.gz
+    tar -xjvf pyliblo-0.10.0.tar.gz
+    cd pyliblo-0.10.0
+    C_INCLUDE_PATH=/usr/local/include LIBRARY_PATH=/usr/local/lib python2 setup.py install
+    cd ../../../
+    cd ../../..
+    python2 /Users/reno/Documents/GITs/viscam/src/viscam.py 
