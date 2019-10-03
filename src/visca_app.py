@@ -2,33 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import os, sys
-# for development of pyCamera, use git version
-libs_path = os.path.abspath('./../3rdparty/pyvisca')
-sys.path.append(libs_path)
-libs_path = os.path.abspath('./../3rdparty/pydevicemanager')
-sys.path.append(libs_path)
 
-from pyviscam.broadcast import Viscam
+from pyviscam.broadcast import v_cams
 
 # a camera is created in visca_app
 # create a visca bus object
-cams = Viscam()
+cams = v_cams()
 # get a list of serial ports available and select the last one
 ports = cams.serial.listports()
 
-port = None
-for item in ports:
-    if 'usbserial' in item:
-    	# this is for osx on my computer for testing
-        port = item
-if not port:
-	try:
-		port = ports[0]
-	except IndexError:
-		print('There is no available ports')
-		quit()
-
-print('serial port opening : ' + port)
+port = ports[0]
 
 # open a connection on the serial object
 cams.reset(port)
