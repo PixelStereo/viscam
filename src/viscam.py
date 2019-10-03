@@ -75,6 +75,6 @@ class Viscam(QGroupBox):
         zoom = v._query('zoom')
         self.zoom_direct_value.setValue(zoom)
         self.focus_direct_value.setValue(focus)
-        v.video = (720, 50)
+        v.video = (1080, 25)
         VIDEO = v._query('video')
         v.chromasuppress = 0
