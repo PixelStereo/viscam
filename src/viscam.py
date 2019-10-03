@@ -26,17 +26,31 @@ debug = True
 update_run = False
 
 
-from panels import *
+from properties import Properties_UI
+from focus import Focus_UI
+from zoom import Zoom_UI
+from pan_tilt import Pan_Tilt_UI
 
-
-    
-class ViscaUI(QMainWindow):
-    """create viscam view and controller (MVC)"""
+class Viscam(QGroupBox):
+    """
+    A Visca Camera Control Panel
+    """
     def __init__(self):
-        super(ViscaUI, self).__init__()
+        super(Viscam, self).__init__()
+        properties_UI = Properties_UI(self, v)
+        focus_UI = Focus_UI(self, v)
+        zoom_UI = Zoom_UI(self, v)
+        pan_tilt_UI = Pan_Tilt_UI(self, v)
+        mainLayout = QGridLayout()
+        mainLayout.addWidget(properties_UI, 1, 1, 1, 1)
+        mainLayout.addWidget(focus_UI, 2, 1, 1, 1)
+        mainLayout.addWidget(zoom_UI, 3, 1, 1, 1)
+        mainLayout.addWidget(pan_tilt_UI, 4, 1, 1, 1)
+        self.setTitle('VISCA')
+        self.setLayout(mainLayout)
+        self.initialise_values()
 
-        main_panel = self.create_panels()
-
+    def initialise_values(self):
         # query about params
         power = v._query('power') 
         self.power.setChecked(power)
@@ -58,184 +72,6 @@ class ViscaUI(QMainWindow):
         self.focus_direct_value.setValue(focus)
         v.video = (720, 50)
         VIDEO = v._query('video')
-
-    def create_panels(self):
-        """
-        create differents UI panels
-        """
-        properties_groupbox = create_properties_panel(self)
-        focus_groupbox = create_focus_panel(self)
-        zoom_groupbox = create_zoom_panel(self)
-        pan_tilt_groupbox = create_pan_tilt_panel(self)
-
-        mainLayout = QGridLayout()
-        mainLayout.addWidget(properties_groupbox, 1, 1, 1, 1)
-        mainLayout.addWidget(focus_groupbox, 2, 1, 1, 1)
-        mainLayout.addWidget(zoom_groupbox, 3, 1, 1, 1)
-        mainLayout.addWidget(pan_tilt_groupbox, 4, 1, 1, 1)
-        #self.setLayout(mainLayout)
-
-        visca_widget = QGroupBox()
-        visca_widget.setTitle('VISCA')
-        visca_widget.setLayout(mainLayout)
-        self.setCentralWidget(visca_widget)
-        #self.setFixedSize(640, 512)
-
-
-    def on_power_toggled(self, state):
-        v.power = state
-        print('POWER', state)
-    
-    def on_IR_toggled(self,state):
-        v.IR = state
-
-
-
-
-
-
-    def on_focus_auto_stateChanged(self, state):
-        if state:
-            v.focus_auto = 1
-            self.focus_manual_box.setEnabled(0)
-        else:
-            v.focus_auto = 0
-            self.focus_manual_box.setEnabled(1)
-        sleep(0.1)
-        focus = v._query('focus')
-        focus_auto___ = v._query('focus_auto')
-        print('------autofocus is :', focus_auto___)
-        self.focus_direct_value.setValue(focus)
-        sleep(0.1)
-        nearlimit = v._query('focus_nearlimit')
-        self.focus_nearlimit_value.setValue(nearlimit)
-
-    def on_focus_near_pressed(self):
-        v.focus_near()
-
-    def on_focus_far_pressed(self):
-        v.focus_far()
-
-    def focus_refresh(self):
-        focus = v._query('focus')
-        self.focus_direct_value.setValue(focus)
-
-    def on_focus_stop_pressed(self):
-        v.focus_stop()
-        self.focus_refresh()
-
-    def on_focus_near_speed_valueChanged(self, speed):
-        self.focus_near_speed = speed
-
-    def on_focus_far_speed_valueChanged(self, speed):
-        self.focus_far_speed = speed
-    
-    def on_focus_direct_valueChanged(self, value):
-        v.focus = value
-    
-    def on_focus_nearlimit_valueChanged(self, nearlimit):
-        v.focus_nearlimit = nearlimit
-
-
-
-
-
-
-
-
-    def on_zoom_direct_valueChanged(self, zoom):
-        v.zoom = zoom
-        self.zoom = zoom
-    
-    def on_zoom_tele_pressed(self):
-        v.zoom_tele(self.zoom_tele_speed)
-
-    def on_zoom_wide_pressed(self):
-        v.zoom_wide(self.zoom_wide_speed)
-
-    def zoom_refresh(self):
-        zoom = v._query('zoom')
-        self.zoom_direct_value.setValue(zoom)
-
-    def on_zoom_stop_pressed(self):
-        v.zoom_stop()
-        self.zoom_refresh()
-
-    def on_zoom_tele_speed_valueChanged(self, speed):
-        self.zoom_tele_speed = speed
-
-    def on_zoom_wide_speed_valueChanged(self, speed):
-        self.zoom_wide_speed = speed
-
-
-
-
-
-
-
-    def on_up_pressed(self):
-        v.up()
-
-    def on_left_pressed(self):
-        v.left()
-
-    def on_down_pressed(self):
-        v.down()
-
-    def on_right_pressed(self):
-        v.right()
-
-    def on_upleft_pressed(self):
-        v.upleft()
-
-    def on_downleft_pressed(self):
-        v.downleft()
-
-    def on_downright_pressed(self):
-        v.downright()
-
-    def on_upright_pressed(self):
-        v.upright()
-        
-    def on_home_pressed(self):
-        v.home()
-        self.pan_tilt_refresh()
-        
-    def on_reset_pressed(self):
-        v.reset()
-        self.pan_tilt_refresh()
-
-    def on_stop_pressed(self):
-        v.stop()
-        self.pan_tilt_refresh()
-
-    def pan_tilt_refresh(self):
-        pan, tilt = v._query('pan_tilt')
-        self.tilt.setValue(tilt)
-        self.pan.setValue(pan)
-
-    def on_pan_speed_valueChanged(self,value):
-        v.pan_speed = value
-
-    def on_tilt_speed_valueChanged(self,value):
-        v.tilt_speed = value
-
-    def on_pan_valueChanged(self, value):
-        value = int(value)
-        v.pan = value
-
-    def on_tilt_valueChanged(self, value):
-        value = int(value)
-        v.tilt = value
-
-
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    MainWindow = ViscaUI()
-    MainWindow.show()
-    sys.exit(app.exec_())
-
 
 
 """
@@ -322,13 +158,7 @@ if __name__ == "__main__":
         else:
             v.aperture = index
 
-    def on_slowshutter_currentIndexChanged(self,state):
-        if type(state) == unicode:
-            state = state.encode('utf-8')
-        if state:
-            v.slowshutter = 'auto'
-        else:
-            v.slowshutter = 'manual'
+
 
 
     def on_gamma_valueChanged(self, value):
@@ -336,14 +166,6 @@ if __name__ == "__main__":
         v._query('gamma')
 
 
-    def on_WB_currentTextChanged(self, text):
-        if type(text) == unicode:
-            text = text.encode('utf-8')
-            v.WB = text
-    def on_FX_currentTextChanged(self, text):
-        if type(text) == unicode:
-            text = text.encode('utf-8')
-            v.FX = text
 
 
 
