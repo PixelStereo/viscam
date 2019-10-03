@@ -11,6 +11,7 @@ Install Python and create a virtual environment
     brew upgrade
     brew install python2
     brew install liblo
+    brew install git
 
 Clone the repository and install dependancies
 ---
