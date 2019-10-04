@@ -29,8 +29,10 @@ Clone the repository and install dependancies
     pip2 install Cython
     cd ../../../3rdparty/pydevicemanager
     pip2 install -r requirements.txt 
+    pip2 install -ve .
     cd ../pyvisca
     pip2 install -r requirements.txt
+    pip2 install -ve .
     pip2 install pyside2
     cd ../../src/
 
