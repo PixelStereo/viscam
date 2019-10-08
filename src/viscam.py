@@ -50,7 +50,6 @@ class Visca_UI(QGroupBox):
         # these params needs to have UI 
         # -------------------------------------
         IR_auto = self.cam._query('IR_auto')
-        self.cam.video = '1080i50'
         # Turn off digital zoom aka zoom_digital
         self.cam.zoom_digital = False
         # Turn off datascreen display
@@ -64,6 +63,8 @@ class Visca_UI(QGroupBox):
         # PROPERTIES
         power = self.cam._query('power') 
         self.power.setChecked(power)
+        video = self.cam._query('video')
+        self.video.setCurrentIndex(self.video.findText(video))
         IR = self.cam._query('IR') 
         self.IR.setChecked(IR)
         FX = self.cam._query('FX')
