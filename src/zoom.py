@@ -45,9 +45,7 @@ class Zoom_UI(QGroupBox):
         visca.zoom.valueChanged.connect(visca.zoom_direct_value.setValue)
         visca.zoom_direct_value.setMinimum(0)
         visca.zoom_direct_value.setMaximum(65536)
-
-        visca.zoom_direct_value.valueChanged.connect(self.on_zoom_direct_valueChanged)
-        
+        visca.zoom_direct_value.valueChanged.connect(self.on_zoom_direct_valueChanged)   
         zoom_layout.addWidget(visca.zoom_wide_speed, 2, 1, 1, 1)
         zoom_layout.addWidget(visca.zoom_tele_speed, 2, 3, 1, 1)
         zoom_layout.addWidget(visca.zoom_label, 2, 4, 1, 1)
@@ -59,8 +57,6 @@ class Zoom_UI(QGroupBox):
         zoom_layout.addWidget(visca.zoom_tele, 3, 3, 1, 1)
         zoom_layout.addWidget(visca.zoom_direct_value, 3, 4, 1, 1)
         self.setLayout(zoom_layout)
-        visca.zoom_tele_speed = 3
-        visca.zoom_wide_speed = 3
 
     def on_zoom_direct_valueChanged(self, zoom):
         self.v.zoom = zoom

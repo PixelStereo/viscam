@@ -86,11 +86,6 @@ class Pan_Tilt_UI(QGroupBox):
         pan_tilt_layout.addWidget(visca.down, 5, 2, 1, 1)
         pan_tilt_layout.addWidget(visca.downright, 5, 3, 1, 1)
         self.setLayout(pan_tilt_layout)
-        # initialize speeds
-        #visca.pan_speed = 5
-        #visca.tilt_speed = 5
-        #visca.pan_speed.setValue(5)
-        #visca.tilt_speed.setValue(5)
 
     def on_up_pressed(self):
         self.v.up()
@@ -133,10 +128,10 @@ class Pan_Tilt_UI(QGroupBox):
         self.visca.tilt.setValue(tilt)
         self.visca.pan.setValue(pan)
 
-    def on_pan_speed_valueChanged(self,value):
+    def on_pan_speed_valueChanged(self, value):
         self.v.pan_speed = value
 
-    def on_tilt_speed_valueChanged(self,value):
+    def on_tilt_speed_valueChanged(self, value):
         self.v.tilt_speed = value
 
     def on_pan_valueChanged(self, value):

@@ -42,33 +42,9 @@ class Visca_UI(QGroupBox):
         self.cam = cam
         self.initialise_values()
         self.move(40, 40)
-        
+        self.refresh()
 
     def initialise_values(self):
-        # query about params
-        power = self.cam._query('power') 
-        self.power.setChecked(power)
-        IR = self.cam._query('IR') 
-        self.IR.setChecked(IR)
-        slowshutter = self.cam._query('slowshutter') 
-        self.slowshutter.setChecked(slowshutter)
-        FX = self.cam._query('FX')
-        self.FX.setCurrentIndex(self.FX.findText(FX))
-        WB = self.cam._query('WB')
-        self.WB.setCurrentIndex(self.WB.findText(WB))
-        self.focus_far_speed = 3
-        self.focus_near_speed = 3
-        focus = self.cam._query('focus')
-        self.focus_direct_value.setValue(focus)
-        nearlimit = self.cam._query('focus_nearlimit')
-        self.focus_nearlimit_value.setValue(nearlimit)
-        pan,tilt = self.cam._query('pan_tilt')
-        self.tilt.setValue(tilt)
-        self.pan.setValue(pan)
-        self.zoom_wide_speed = 3
-        self.zoom_tele_speed = 3
-        zoom = self.cam._query('zoom')
-        self.zoom_direct_value.setValue(zoom)
         # -------------------------------------
         # TODO
         # these params needs to have UI 
@@ -81,3 +57,43 @@ class Visca_UI(QGroupBox):
         # Turn off datascreen display
         self.cam.menu_off()
         self.cam.info_display = False
+
+    def refresh(self):
+        """
+        ask the camera the actual values and refresh UI
+        """
+        # PROPERTIES
+        power = self.cam._query('power') 
+        self.power.setChecked(power)
+        IR = self.cam._query('IR') 
+        self.IR.setChecked(IR)
+        FX = self.cam._query('FX')
+        self.FX.setCurrentIndex(self.FX.findText(FX))
+        # WHITE BALANCE
+        WB = self.cam._query('WB')
+        self.WB.setCurrentIndex(self.WB.findText(WB))
+        RGain = self.cam._query('RGain')
+        self.RGain.setValue(RGain)
+        BGain = self.cam._query('BGain')
+        self.BGain.setValue(BGain)
+        # ZOOM
+        self.zoom_wide_speed.setValue(3)
+        self.zoom_tele_speed.setValue(3)
+        zoom = self.cam._query('zoom')
+        self.zoom_direct_value.setValue(zoom)
+        # EXPOSURE
+        slowshutter = self.cam._query('slowshutter') 
+        self.slowshutter.setChecked(slowshutter)
+        # PAN TILT
+        self.pan_speed.setValue(3)
+        self.tilt_speed.setValue(3)
+        pan,tilt = self.cam._query('pan_tilt')
+        self.tilt.setValue(tilt)
+        self.pan.setValue(pan)
+        # FOCUS
+        self.focus_far_speed.setValue(3)
+        self.focus_near_speed.setValue(3)
+        focus = self.cam._query('focus')
+        self.focus_direct_value.setValue(focus)
+        nearlimit = self.cam._query('focus_nearlimit')
+        self.focus_nearlimit_value.setValue(nearlimit)
