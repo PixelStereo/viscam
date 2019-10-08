@@ -10,13 +10,6 @@ from PySide2.QtWidgets import QWidget, QApplication, QHBoxLayout, QDialog, QList
                             QTableWidget, QTableView, QFileDialog, QTableWidgetItem, QWidget, QTreeView, QMainWindow, \
                             QSpinBox, QGroupBox, QGridLayout, QCheckBox, QSlider, QLabel
 
-# Create the visca application
-import visca_app
-
-cam = visca_app.v
-debug = True
-update_run = False
-
 
 from properties import Properties_UI
 from focus import Focus_UI
@@ -25,12 +18,12 @@ from pan_tilt import Pan_Tilt_UI
 from exposure import Exposure_UI
 from white_balance import WhiteBalance_UI
 
-class Viscam(QGroupBox):
+class Visca_UI(QGroupBox):
     """
     A Visca Camera Control Panel
     """
-    def __init__(self):
-        super(Viscam, self).__init__()
+    def __init__(self, cam):
+        super(Visca_UI, self).__init__()
         properties_UI = Properties_UI(self, cam)
         whiteBalance_UI = WhiteBalance_UI(self, cam)
         focus_UI = Focus_UI(self, cam)
@@ -46,43 +39,45 @@ class Viscam(QGroupBox):
         mainLayout.addWidget(exposure_UI, 2, 2, 1, 1)
         self.setTitle('VISCA')
         self.setLayout(mainLayout)
+        self.cam = cam
         self.initialise_values()
         self.move(40, 40)
+        
 
     def initialise_values(self):
         # query about params
-        power = cam._query('power') 
+        power = self.cam._query('power') 
         self.power.setChecked(power)
-        IR = cam._query('IR') 
+        IR = self.cam._query('IR') 
         self.IR.setChecked(IR)
-        slowshutter = cam._query('slowshutter') 
+        slowshutter = self.cam._query('slowshutter') 
         self.slowshutter.setChecked(slowshutter)
-        FX = cam._query('FX')
+        FX = self.cam._query('FX')
         self.FX.setCurrentIndex(self.FX.findText(FX))
-        WB = cam._query('WB')
+        WB = self.cam._query('WB')
         self.WB.setCurrentIndex(self.WB.findText(WB))
         self.focus_far_speed = 3
         self.focus_near_speed = 3
-        focus = cam._query('focus')
+        focus = self.cam._query('focus')
         self.focus_direct_value.setValue(focus)
-        nearlimit = cam._query('focus_nearlimit')
+        nearlimit = self.cam._query('focus_nearlimit')
         self.focus_nearlimit_value.setValue(nearlimit)
-        pan,tilt = cam._query('pan_tilt')
+        pan,tilt = self.cam._query('pan_tilt')
         self.tilt.setValue(tilt)
         self.pan.setValue(pan)
         self.zoom_wide_speed = 3
         self.zoom_tele_speed = 3
-        zoom = cam._query('zoom')
+        zoom = self.cam._query('zoom')
         self.zoom_direct_value.setValue(zoom)
         # -------------------------------------
         # TODO
         # these params needs to have UI 
         # -------------------------------------
-        IR_auto = cam._query('IR_auto')
-        cam.video = [1080, 25]
-        VIDEO = cam._query('video')
+        IR_auto = self.cam._query('IR_auto')
+        self.cam.video = [1080, 25]
+        VIDEO = self.cam._query('video')
         # Turn off digital zoom aka zoom_digital
-        cam.zoom_digital = False
+        self.cam.zoom_digital = False
         # Turn off datascreen display
-        cam.menu_off()
-        cam.info_display = False
+        self.cam.menu_off()
+        self.cam.info_display = False
