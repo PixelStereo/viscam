@@ -119,7 +119,6 @@ class Exposure_UI(QGroupBox):
             self.ui.gain.setCurrentText(str(gain))
 
     def on_AE_currentTextChanged(self, mode):
-        print(mode)
         if type(mode) == unicode:
             mode = mode.encode('utf-8')
             self.cam.AE = mode

@@ -1,6 +1,7 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
+from pyviscam.constants import answers
 from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QGroupBox, QCheckBox, QGridLayout, QComboBox, \
                                  QSlider, QLabel, QPushButton
@@ -19,14 +20,18 @@ class Properties_UI(QGroupBox):
         ui.power.setText('Power')
         ui.power.clicked.connect(self.on_power_toggled)
         properties_layout.addWidget(ui.power, 1, 1, 1, 1)
+        ui.video = QComboBox()
+        ui.video.addItems([str(truc) for truc in answers['video'].values()])
+        ui.video.currentTextChanged.connect(self.on_video_currentTextChanged)
+        properties_layout.addWidget(ui.video, 1, 2, 1, 1)
         ui.IR = QCheckBox()
         ui.IR.setText('IR')
         ui.IR.clicked.connect(self.on_IR_toggled)
-        properties_layout.addWidget(ui.IR, 1, 2, 1, 1)
+        properties_layout.addWidget(ui.IR, 1, 3, 1, 1)
         ui.FX = QComboBox()
         ui.FX.addItems(['Normal', 'NegArt', 'B&W'])
         ui.FX.currentTextChanged.connect(self.on_FX_currentTextChanged)
-        properties_layout.addWidget(ui.FX, 1, 3, 1, 1)
+        properties_layout.addWidget(ui.FX, 1, 4, 1, 1)
         mem_set_label = QLabel()
         mem_set_label.setText('Make Memory')
         properties_layout.addWidget(mem_set_label, 2, 1, 1, 1)
@@ -43,6 +48,9 @@ class Properties_UI(QGroupBox):
         ui.memory_recall.currentTextChanged.connect(self.on_memory_recall_currentTextChanged)
         properties_layout.addWidget(ui.memory_recall, 3, 2, 1, 1)
         self.setLayout(properties_layout)
+
+    def on_video_currentTextChanged(self, text):
+        self.cam.video(text)
 
     def on_memory_set_currentTextChanged(self, text):
         text = int(text)
