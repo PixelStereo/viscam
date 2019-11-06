@@ -22,7 +22,7 @@ Clone the repository and install dependancies
     mkdir venv
     cd venv
     pip2 install virtualenv
-    virtualenv -p python2 viscam
+    python2 -m virtualenv -p python2 viscam
     cd viscam
     source bin/activate
     pip2 install --upgrade pip
