@@ -38,7 +38,7 @@ Clone the repository and install dependancies
 
 Launch the app
 ---
-    python2 /Users/reno/Documents/GITs/viscam/src/viscam.py 
+    python2 main.py
 
 
 If you had some errors with pyliblo, you can install it by hand
