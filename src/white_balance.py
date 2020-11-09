@@ -54,6 +54,7 @@ class WhiteBalance_UI(QGroupBox):
                 self.ui.BGain.setEnabled(True)
                 self.ui.RGain_label.setEnabled(True)
                 self.ui.BGain_label.setEnabled(True)
+                self.WB_refresh()
             elif text == 'trigger':
                 self.ui.WB_trigger.setEnabled(True)
                 self.ui.WB_trigger_label.setEnabled(True)
@@ -68,6 +69,12 @@ class WhiteBalance_UI(QGroupBox):
                 self.ui.BGain.setEnabled(False)
                 self.ui.RGain_label.setEnabled(False)
                 self.ui.BGain_label.setEnabled(False)
+
+    def WB_refresh(self):
+        BGain = self.cam._query('BGain')
+        self.ui.BGain.setValue(BGain)
+        RGain = self.cam._query('RGain')
+        self.ui.RGain.setValue(RGain)
 
     def on_WB_trigger_clicked(self):
         self.cam.WB_trigger()
