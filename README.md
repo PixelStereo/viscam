@@ -40,6 +40,8 @@ Launch the app
 ---
     python2 main.py
 
+Errors
+---
 
 If you had some errors with pyliblo, you can install it by hand
 
