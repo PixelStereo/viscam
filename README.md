@@ -51,3 +51,10 @@ If you had some errors with pyliblo, you can install it by hand
     cd ../../../
     cd ../../..
     python2 /Users/reno/Documents/GITs/viscam/src/viscam.py 
+
+If you need to install python 2 post 2020
+
+    brew tap-new <user>/homebrew-python2
+    brew extract python@2 <user>/homebrew-python2
+    brew install /usr/local/Homebrew/Library/Taps/<user>/homebrew-python2/Formula/python@2.7.17.rb
+    
